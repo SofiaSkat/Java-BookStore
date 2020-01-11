@@ -115,6 +115,7 @@ public class ControllerServlet extends HttpServlet {
 
     private void deleteBook(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("Preparing int ID for Delete function");
         int id = Integer.parseInt(request.getParameter("id"));
         bookDAO.deleteBook(id);
         response.sendRedirect("list");
@@ -122,7 +123,9 @@ public class ControllerServlet extends HttpServlet {
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("Preparing int ID for Edit function");
         int id = Integer.parseInt(request.getParameter("id"));
+        System.out.println("Preparing int ID for Edit function:" + id);
         Book existingBook = bookDAO.getBook(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/BookForm.jsp");
         request.setAttribute("book", existingBook);

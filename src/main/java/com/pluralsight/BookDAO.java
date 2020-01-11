@@ -100,6 +100,22 @@ public class BookDAO {
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+    public boolean updateBook(Book book)  {
+        String sql = "UPDATE book SET title = ?, author = ?, price = ?WHERE id = ?";
+        try {
+            PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+            statement.setString(1, book.getTitle());
+            statement.setString(2, book.getAuthor());
+            statement.setFloat(3, book.getPrice());
+            boolean rowInserted = statement.executeUpdate() > 0;
+            statement.close();
+            System.out.println("!!!!!!updating DB!!!!!!");
+            return rowInserted;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
+        return false;
     }
 }
