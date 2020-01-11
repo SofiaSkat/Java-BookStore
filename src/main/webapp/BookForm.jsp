@@ -9,16 +9,16 @@
 </head>
 <body>
   <ul>
-	  <li><a href="list">Book Listing</a></li>
+	<li><a href="list">Book Listing</a></li>
     <li><a class="active" href="admin">Admin</a></li>
 	</ul>
 
 <div class="container">
     <c:if test="${book!=null}">
-    <form name="book_form" method="post" action="update">
+    <form name="book_form" method="post" action="update"/>
     </c:if>
     <c:if test="${book==null}">
-    <form name="book_form" method="post" action="insert">
+    <form name="book_form" method="post" action="insert"/>
     </c:if>
     <h2>
     <c:if test="${book!=null}">Edit Book form</c:if>
@@ -41,7 +41,6 @@
     <input type="text" name="bookprice" value="<c:out value='${book.price}'/>"/>
     </p>
     <p><input type="submit" value="Submit"></p>
-    </form>
 </div>
     
 </body>
